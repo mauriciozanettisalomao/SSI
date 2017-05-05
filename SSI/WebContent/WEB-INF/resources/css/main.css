@@ -1,0 +1,36 @@
+@CHARSET "ISO-8859-1";
+
+.input-group{
+	padding-right: 10px;
+}
+
+.input-group-addon { 
+	min-width:250px;
+}
+
+.fontRequestData{
+	color: #E05206;
+	font-size: 20;
+	font-weight: bold;
+}
+
+.textdefaultbold{
+	padding: 5.5px;
+	background-color: #f5f5f5;
+	color: #f5f5f5;
+}
+
+.TextCinzaBold{
+	padding: 5px;
+	background-color: #f5f5f5;
+	color: #f5f5f5;
+}
+
+.menu-side{
+	padding-top: 80px;
+}
+.glyphicon { margin-right:10px; }
+.panel-body { padding:0px; }
+.panel-body table tr td { padding-left: 10px }
+
+
