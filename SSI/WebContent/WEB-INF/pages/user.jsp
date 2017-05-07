@@ -34,7 +34,7 @@
         							Prestador de Serviços
     							</c:when>
 								<c:otherwise>
-									Funcionário        
+									Funcionário
     							</c:otherwise>
 							</c:choose>
 						</div>
