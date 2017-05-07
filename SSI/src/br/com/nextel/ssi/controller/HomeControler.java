@@ -46,6 +46,12 @@ public class HomeControler {
 		System.out.println(userSystem.getLocality().getNmLocality());
 		System.out.println(userSystem.getDefaulLocality().getNmLocality());
 		
+		//List<ReplVwbrUserNextel> manager = userService.getManagerByCostCenter(user.getIdCostCenter());
+		//for(ReplVwbrUserNextel managerUser : manager){
+			//System.out.println("Manager: "+managerUser);
+		//}
+		
+		
 		return "user";
 		
 	}

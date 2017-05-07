@@ -3,7 +3,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-xs-12 col-sm-2 col-md-2">
+		<div class="col-xs-12 col-sm-12 col-md-2">
 			<div class="panel-group menu-side" id="accordion">
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -11,7 +11,7 @@
 							<span class="text-primary">Minhas Ações</span>
 						</h4>
 					</div>
-					<div id="collapse${index}" class="panel-collapse collapse in">
+					<div id="collapse1" class="panel-collapse collapse in">
 						<div class="panel-body">
 							<table class="table">
 								<tr>

@@ -5,8 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.nextel.ssi.model.dao.MenuProfileDAO;
-import br.com.nextel.ssi.model.dao.UserDAO;
+import br.com.nextel.ssi.model.dao.UserManagerDAO;
+import br.com.nextel.ssi.model.dao.hibernate.UserDAO;
+import br.com.nextel.ssi.model.dao.jdbc.MenuProfileDAO;
 import br.com.nextel.ssi.model.entity.ReplVwbrUserNextel;
 import br.com.nextel.ssi.model.entity.TwbrUserSystem;
 import br.com.nextel.ssi.model.to.MenuProfile;
@@ -15,7 +16,7 @@ import br.com.nextel.ssi.model.to.MenuProfile;
 public class UserService {
 	
 	private UserDAO userDAO;
-	
+	private UserManagerDAO userManagerDAO;
 	private MenuProfileDAO menuDAO;
 	
 	@Autowired
@@ -44,5 +45,10 @@ public class UserService {
 	public TwbrUserSystem getUserSystemByLogin(String cdLoginUser) {
 		return userDAO.getUserSystemByLogin(cdLoginUser);
 	}
+	
+	public List<ReplVwbrUserNextel> getManagerByCostCenter(String costCenter){
+		return userManagerDAO.getManagerByCostCenter(costCenter);
+	}
+	
 
 }

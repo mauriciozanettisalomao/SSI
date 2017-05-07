@@ -1,4 +1,4 @@
-package br.com.nextel.ssi.model.dao;
+package br.com.nextel.ssi.model.dao.hibernate;
 
 import java.util.List;
 
@@ -11,21 +11,13 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.nextel.ssi.model.dao.GenericDAO;
 import br.com.nextel.ssi.model.entity.ReplVwbrUserNextel;
 import br.com.nextel.ssi.model.entity.TwbrUserSystem;
 
 @Component("userDAO")
 @Transactional
-public class UserDAO {
-	
-	private NamedParameterJdbcTemplate jdbc;
-	
-	@Autowired
-	private SessionFactory sessionFactory;
-
-	public Session session(){
-		return 	sessionFactory.getCurrentSession();	
-	}
+public class UserDAO extends GenericDAO{
 	
 	public List<TwbrUserSystem> getAllUsers(){
 		return session().createQuery("from UserSystem").list();

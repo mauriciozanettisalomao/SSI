@@ -1,4 +1,4 @@
-package br.com.nextel.ssi.model.dao;
+package br.com.nextel.ssi.model.dao.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,19 +15,11 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jndi.JndiTemplate;
 import org.springframework.stereotype.Component;
 
+import br.com.nextel.ssi.model.dao.GenericDAO;
 import br.com.nextel.ssi.model.to.MenuProfile;
 
 @Component
-public class MenuProfileDAO {
-	
-	private NamedParameterJdbcTemplate jdbc;
-	
-	@Autowired
-	@Qualifier("dataSourceProfile")
-	public void setDataSource(DataSource jdbc){
-		this.jdbc = new NamedParameterJdbcTemplate(jdbc);		
-	}
-
+public class MenuProfileDAO extends GenericDAO{
 	
     public List<MenuProfile> getMenuProfile(String cdLoginUser) {
     	
@@ -49,7 +41,7 @@ public class MenuProfileDAO {
    			 "and	b.lg_usuario	= '"+cdLoginUser+"' "+
    			 "order by f.nu_sequencia";
     	
-    	return jdbc.query(sql, new RowMapper<MenuProfile>() {
+    	return getJdbc().query(sql, new RowMapper<MenuProfile>() {
 
     		@Override
 		        public MenuProfile mapRow(ResultSet rs, int rowNumber) throws SQLException {

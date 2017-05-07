@@ -43,10 +43,10 @@
 
 		</br>
 		<div class="row">
-			<div class="col-xs-12 col-sm-2 col-md-2">
+			<div class="col-xs-12 col-sm-12 col-md-2">
 				<tiles:insertAttribute name="menu-side" />
 			</div>
-			<div class="col-xs-12 col-sm-10 col-md-10">
+			<div class="col-xs-12 col-sm-12 col-md-10">
 				<tiles:insertAttribute name="body" />
 			</div>
 		</div>
