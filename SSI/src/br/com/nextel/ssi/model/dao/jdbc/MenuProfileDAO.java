@@ -4,15 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jndi.JndiTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Component;
 
 import br.com.nextel.ssi.model.dao.GenericDAO;
@@ -38,10 +32,12 @@ public class MenuProfileDAO extends GenericDAO{
    			 "and a.cd_aplicacao = f.cd_aplicacao "+
    			 "and	a.cd_aplicacao	= 9 "+
    			 "and	a.cd_ambiente	= 1 "+
-   			 "and	b.lg_usuario	= '"+cdLoginUser+"' "+
+   			 "and	b.lg_usuario	= :cdLoginUser "+
    			 "order by f.nu_sequencia";
+    	 
+        SqlParameterSource namedParameters = new MapSqlParameterSource("cdLoginUser", cdLoginUser);
     	
-    	return getJdbc().query(sql, new RowMapper<MenuProfile>() {
+    	return getNamedParameterJdbc().query(sql, namedParameters, new RowMapper<MenuProfile>() {
 
     		@Override
 		        public MenuProfile mapRow(ResultSet rs, int rowNumber) throws SQLException {

@@ -19,5 +19,9 @@
   <definition name="user" extends="ssi.base">
     <put-attribute name="body" value="/WEB-INF/pages/user.jsp" />
   </definition>
+  
+  <definition name="listNewRequest" extends="ssi.base">
+    <put-attribute name="body" value="/WEB-INF/pages/listNewRequest.jsp" />
+  </definition>  
     
 </tiles-definitions>

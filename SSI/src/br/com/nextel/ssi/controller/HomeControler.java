@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,20 +47,24 @@ public class HomeControler {
 		System.out.println(userSystem.getLocality().getNmLocality());
 		System.out.println(userSystem.getDefaulLocality().getNmLocality());
 		
-		//List<ReplVwbrUserNextel> manager = userService.getManagerByCostCenter(user.getIdCostCenter());
-		//for(ReplVwbrUserNextel managerUser : manager){
-			//System.out.println("Manager: "+managerUser);
-		//}
+		List<ReplVwbrUserNextel> manager = userService.getManagerByCostCenter(user.getIdCostCenter());
+		for(ReplVwbrUserNextel managerUser : manager){
+			System.out.println("Manager: "+managerUser);
+		}
 		
+		model.addAttribute("manager", manager);
 		
 		return "user";
 		
 	}
 	
-	@RequestMapping("/teste")
-	public String showTeste(Model model){
+	@RequestMapping(value="/novaSolicitacao", method = RequestMethod.POST)
+	public String showTeste(Model model,@ModelAttribute("userSystem") TwbrUserSystem userSystem){
 	
-		return "teste";
+		System.out.println(userSystem.toString());
+		
+		userService.merge(userSystem);
+		return "listNewRequest";
 		
 	}	
 

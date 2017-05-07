@@ -36,4 +36,8 @@ public class UserDAO extends GenericDAO{
 		ReplVwbrUserNextel user = (ReplVwbrUserNextel) criteria.uniqueResult();
 		return user;
 	}
+
+	public void merge(TwbrUserSystem userSystem) {
+		session().merge(userSystem);		
+	}
 }
