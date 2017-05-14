@@ -8,9 +8,6 @@
               Solicita&ccedil;&atilde;o &eacute; para:</font></span></td>
             </tr>
           <tr> 
-            <td bgcolor="#766A62"><img src="images/transpa.gif" width="1" height="1"></td>
-          </tr>
-          <tr> 
             <td >&nbsp;</td>
           </tr>
           <tr bgcolor="#ECEEE7"> 

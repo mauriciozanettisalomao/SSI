@@ -59,8 +59,11 @@ public class HomeControler {
 	}
 	
 	@RequestMapping(value="/novaSolicitacao", method = RequestMethod.POST)
-	public String showTeste(Model model,@ModelAttribute("userSystem") TwbrUserSystem userSystem){
+	public String showListNewRequest(Model model,@ModelAttribute("userSystem") TwbrUserSystem userSystem){
 	
+		List<MenuProfile> menu = userService.getMenuProfile(userSystem.getCdLoginUser());
+		model.addAttribute("menu", menu);
+		
 		System.out.println(userSystem.toString());
 		
 		userService.merge(userSystem);
